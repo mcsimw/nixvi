@@ -108,12 +108,12 @@
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
         gitPlugins = with pkgs.neovimPlugins; [ 
-	      modus
-	    ];
+          modus
+        ];
         general = with pkgs.vimPlugins; [ 
           nvim-treesitter-textobjects
           nvim-treesitter.withAllGrammars
-	    ];
+        ];
       };
 
       # not loaded automatically at startup.
