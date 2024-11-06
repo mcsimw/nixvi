@@ -44,10 +44,15 @@
       optionalPlugins = {
         gitPlugins = with pkgs.neovimPlugins; [
         ];
-        general = with pkgs.vimPlugins; [ 
+        general = {
+          treesitter = with pkgs.vimPlugins; [
             nvim-treesitter-textobjects
             nvim-treesitter.withAllGrammars
-	];
+          ];
+          always = with pkgs.vimPlugins;[
+            lualine-nvim
+          ];
+        };
       };
 
       sharedLibraries = {
@@ -82,9 +87,6 @@
         };
         categories = {
           general = true;
-          always = true;
-          telescope = true;
-          customPlugins = true;
           gitPlugins = true;
           test = true;
           example = {
