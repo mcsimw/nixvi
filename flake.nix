@@ -29,21 +29,24 @@
     categoryDefinitions = { pkgs, settings, categories, name, ... }@packageDef: {
       lspsAndRuntimeDeps = {
         general = with pkgs; [
+
         ];
       };
       startupPlugins = {
-        gitPlugins = with pkgs.neovimPlugins; [ 
-          modus
+        general = with pkgs.vimPlugins; [
+          lze
         ];
-        general = with pkgs.vimPlugins; [ 
-          nvim-treesitter-textobjects
-          nvim-treesitter.withAllGrammars
+        gitPlugins = with pkgs.neovimPlugins; [
+          modus
         ];
       };
 
       optionalPlugins = {
-        gitPlugins = with pkgs.neovimPlugins; [ ];
+        gitPlugins = with pkgs.neovimPlugins; [
+        ];
         general = with pkgs.vimPlugins; [ 
+            nvim-treesitter-textobjects
+            nvim-treesitter.withAllGrammars
 	];
       };
 
@@ -79,8 +82,10 @@
         };
         categories = {
           general = true;
-          gitPlugins = true;
+          always = true;
+          telescope = true;
           customPlugins = true;
+          gitPlugins = true;
           test = true;
           example = {
             youCan = "add more than just booleans";

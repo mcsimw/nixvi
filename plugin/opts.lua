@@ -1,20 +1,19 @@
 local opt = vim.opt
-
 opt.inccommand = "split"
 opt.smartcase = true
 opt.ignorecase = true
-opt.number = true
-opt.relativenumber = true
+opt.nu = true
+opt.rnu = true
 opt.splitbelow = true
-opt.splitright = true
 opt.signcolumn = "yes"
 opt.shada = { "'10", "<0", "s10", "h" }
-opt.swapfile = false
+opt.swf = false
 opt.formatoptions:remove "o"
 opt.wrap = true
-opt.linebreak = true
-opt.tabstop = 4
+opt.lbr = true
+opt.ts = 4
 opt.shiftwidth = 4
 opt.more = false
-
-vim.cmd([[colorscheme modus]]) -- modus_operandi, modus_vivendi
+opt.laststatus = 3
+vim.opt.gcr = ""
+vim.opt.ut = 50
