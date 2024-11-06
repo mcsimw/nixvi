@@ -15,5 +15,5 @@ opt.ts = 4
 opt.shiftwidth = 4
 opt.more = false
 opt.laststatus = 3
-vim.opt.gcr = ""
-vim.opt.ut = 50
+opt.gcr = ""
+opt.ut = 50
