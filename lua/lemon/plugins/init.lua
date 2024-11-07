@@ -1,3 +1,3 @@
-require('lze').load {
-  { import = "lemon.plugins.treesitter", },
-}
+require("lze").load({
+  { import = "lemon.plugins.treesitter" },
+})

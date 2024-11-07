@@ -7,7 +7,7 @@ opt.rnu = true
 opt.signcolumn = "yes"
 opt.shada = { "'10", "<0", "s10", "h" }
 opt.swf = false
-opt.fo:remove "o"
+opt.fo:remove("o")
 opt.wrap = true
 opt.lbr = true
 opt.ts = 4
