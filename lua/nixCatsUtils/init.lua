@@ -25,33 +25,35 @@ function M.setup(v)
     else
       nixCats_default_value = true
     end
-    local mk_with_meta = function (tbl)
+    local mk_with_meta = function(tbl)
       return setmetatable(tbl, {
         __call = function(_, attrpath)
           local strtable = {}
           if type(attrpath) == "table" then
-              strtable = attrpath
+            strtable = attrpath
           elseif type(attrpath) == "string" then
-              for key in attrpath:gmatch("([^%.]+)") do
-                  table.insert(strtable, key)
-              end
+            for key in attrpath:gmatch("([^%.]+)") do
+              table.insert(strtable, key)
+            end
           else
-              print("function requires a table of strings or a dot separated string")
-              return
+            print("function requires a table of strings or a dot separated string")
+            return
           end
-          return vim.tbl_get(tbl, unpack(strtable));
-        end
+          return vim.tbl_get(tbl, unpack(strtable))
+        end,
       })
     end
-    package.preload['nixCats'] = function ()
+    package.preload["nixCats"] = function()
       local ncsub = {
-        get = function(_) return nixCats_default_value end,
+        get = function(_)
+          return nixCats_default_value
+        end,
         cats = mk_with_meta({
-          nixCats_config_location = vim.fn.stdpath('config'),
+          nixCats_config_location = vim.fn.stdpath("config"),
           wrapRc = false,
         }),
         settings = mk_with_meta({
-          nixCats_config_location = vim.fn.stdpath('config'),
+          nixCats_config_location = vim.fn.stdpath("config"),
           configDirName = os.getenv("NVIM_APPNAME") or "nvim",
           wrapRc = false,
         }),
@@ -63,12 +65,16 @@ function M.setup(v)
             opt = {},
           },
         }),
-        configDir = vim.fn.stdpath('config'),
-        packageBinPath = os.getenv('NVIM_WRAPPER_PATH_NIX') or vim.v.progpath
+        configDir = vim.fn.stdpath("config"),
+        packageBinPath = os.getenv("NVIM_WRAPPER_PATH_NIX") or vim.v.progpath,
       }
-      return setmetatable(ncsub, {__call = function(_, cat) return ncsub.get(cat) end})
+      return setmetatable(ncsub, {
+        __call = function(_, cat)
+          return ncsub.get(cat)
+        end,
+      })
     end
-    _G.nixCats = require('nixCats')
+    _G.nixCats = require("nixCats")
   end
 end
 
@@ -117,6 +123,6 @@ end
 ---Useful for things such as vim-startuptime which must reference the wrapper's actual path
 ---If not using nix, this will simply return vim.v.progpath
 ---@type string
-M.packageBinPath = os.getenv('NVIM_WRAPPER_PATH_NIX') or vim.v.progpath
+M.packageBinPath = os.getenv("NVIM_WRAPPER_PATH_NIX") or vim.v.progpath
 
 return M

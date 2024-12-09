@@ -4,18 +4,17 @@ local M = {}
 -- can be used this way, just do whatever the plugin manager needs to put it in the
 -- opt directory for lazy loading, and add the build steps so that when theres no nix the steps are ran
 function M.setup(v)
-  if not require('nixCatsUtils').isNixCats then
-
+  if not require("nixCatsUtils").isNixCats then
     local function bootstrap_pckr()
       local pckr_path = vim.fn.stdpath("data") .. "/pckr/pckr.nvim"
 
       if not vim.loop.fs_stat(pckr_path) then
         vim.fn.system({
-          'git',
-          'clone',
+          "git",
+          "clone",
           "--filter=blob:none",
-          'https://github.com/lewis6991/pckr.nvim',
-          pckr_path
+          "https://github.com/lewis6991/pckr.nvim",
+          pckr_path,
         })
       end
 
@@ -24,7 +23,7 @@ function M.setup(v)
 
     bootstrap_pckr()
 
-    require('pckr').add(v)
+    require("pckr").add(v)
   end
 end
 return M
