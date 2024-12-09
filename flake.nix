@@ -68,6 +68,7 @@
               nvim-web-devicons
               vimtex
               oil-nvim
+              plenary-nvim
             ];
             gitPlugins = with pkgs.neovimPlugins; [
               modus
@@ -83,6 +84,11 @@
               treesitter = with pkgs.vimPlugins; [
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
+              ];
+              telescope = with pkgs.vimPlugins; [
+                telescope-fzf-native-nvim
+                telescope-ui-select-nvim
+                telescope-nvim
               ];
               always = with pkgs.vimPlugins; [
                 lualine-nvim
