@@ -65,7 +65,9 @@
           startupPlugins = {
             general = with pkgs.vimPlugins; [
               lze
+              nvim-web-devicons
               vimtex
+              oil-nvim
             ];
             gitPlugins = with pkgs.neovimPlugins; [
               modus
