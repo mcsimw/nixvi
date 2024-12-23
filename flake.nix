@@ -76,10 +76,8 @@
           };
 
           optionalPlugins = {
-            gitPlugins =
-              with pkgs.neovimPlugins;
-              [
-              ];
+            gitPlugins = with pkgs.neovimPlugins; [
+            ];
             general = {
               treesitter = with pkgs.vimPlugins; [
                 nvim-treesitter-textobjects
@@ -97,10 +95,8 @@
           };
 
           sharedLibraries = {
-            general =
-              with pkgs;
-              [
-              ];
+            general = with pkgs; [
+            ];
           };
 
           environmentVariables = {
