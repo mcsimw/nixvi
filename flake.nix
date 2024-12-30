@@ -2,12 +2,13 @@
   description = "Neovim config using BirdeeHub's nixCats-nvim";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
-
+    nixCats = {
+      url = "github:BirdeeHub/nixCats-nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
-
     plugins-modus = {
       flake = false;
       url = "github:miikanissi/modus-themes.nvim";
