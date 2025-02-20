@@ -15,3 +15,4 @@ opt.shiftwidth = 4
 opt.more = false
 opt.gcr = ""
 opt.ut = 50
+opt.laststatus = 3

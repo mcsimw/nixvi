@@ -89,7 +89,6 @@
                 telescope-nvim
               ];
               always = with pkgs.vimPlugins; [
-                lualine-nvim
               ];
             };
           };
