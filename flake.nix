@@ -6,9 +6,9 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
-    plugins-modus = {
+    plugins-gruvbox = {
       flake = false;
-      url = "github:miikanissi/modus-themes.nvim";
+      url = "github:ellisonleao/gruvbox.nvim";
     };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
@@ -71,7 +71,7 @@
               plenary-nvim
             ];
             gitPlugins = with pkgs.neovimPlugins; [
-              modus
+              gruvbox
             ];
           };
 
