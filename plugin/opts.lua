@@ -16,3 +16,4 @@ opt.more = false
 opt.gcr = ""
 opt.ut = 50
 opt.laststatus = 3
+opt.signcolumn = "auto"
